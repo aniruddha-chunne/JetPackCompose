@@ -7,6 +7,7 @@ package com.example.android_jetpackcompose
 
 import android.media.Image
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -46,6 +47,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
+//            reComposition()
+
 //            PreviewFunction()
 
 //            Android_JetPackComposeTheme {
@@ -61,64 +64,86 @@ class MainActivity : ComponentActivity() {
 }
 
 
-data class Category(val title:String, val subtitle:String)
-
-fun getList() : MutableList<Category>
-{
-
-    val list = mutableListOf<Category>()
-    list.add(Category("ONE", "Java"))
-    list.add(Category("two", "Java"))
-    list.add(Category("three", "Java"))
-    list.add(Category("four", "Java"))
-    list.add(Category("five", "Java"))
-    list.add(Category("six", "Java"))
-    list.add(Category("seven", "Java"))
-    list.add(Category("eight", "Java"))
-    list.add(Category("nine", "Java"))
-    list.add(Category("ten", "Java"))
-    list.add(Category("eleven", "Java"))
-
-    return list
-
-}
-
-@Preview(showBackground = true, widthDp = 300, heightDp = 500)
-@Composable
-private fun previewItem()
-{
-
-    LazyColumn (content = {items(getList()){item -> CardView(title = item.title, subtitle = item.subtitle )} })
-
-}
-
-@Composable
-private fun CardView(title:String, subtitle:String) {
-    Row(
-        horizontalArrangement = Arrangement.SpaceAround,
-        verticalAlignment = Alignment.CenterVertically
-    )
-    {
-
-        Image(
-            painter = painterResource(id = R.drawable.heart),
-            contentDescription = "Heart Icon",
-            contentScale = ContentScale.Crop
-        )
-
-        Column (
-            verticalArrangement = Arrangement.SpaceEvenly,
-            horizontalAlignment = Alignment.CenterHorizontally
-        )
-        {
-            Text(text = title, fontSize = 24.sp)
-            Text(text = subtitle, fontSize = 24.sp)
-        }
 
 
-    }
+//@Composable
+//private fun reComposition()
+//{
+//    val state = remember { mutableStateOf(0.0) }
+//    Log.d("ONE", "Initial Composition")
+//
+//    Button(onClick = {
+//
+//        state.value = Math.random();
+//
+//    }) {
+//
+//        Log.d("ONE", "Recomposition ${state.value}")
+//        Text(text = state.value.toString())
+//
+//    }
+//
+//}
 
-}
+
+//data class Category(val title:String, val subtitle:String)
+//
+//fun getList() : MutableList<Category>
+//{
+//
+//    val list = mutableListOf<Category>()
+//    list.add(Category("ONE", "Java"))
+//    list.add(Category("two", "Java"))
+//    list.add(Category("three", "Java"))
+//    list.add(Category("four", "Java"))
+//    list.add(Category("five", "Java"))
+//    list.add(Category("six", "Java"))
+//    list.add(Category("seven", "Java"))
+//    list.add(Category("eight", "Java"))
+//    list.add(Category("nine", "Java"))
+//    list.add(Category("ten", "Java"))
+//    list.add(Category("eleven", "Java"))
+//
+//    return list
+//
+//}
+//
+//@Preview(showBackground = true, widthDp = 300, heightDp = 500)
+//@Composable
+//private fun previewItem()
+//{
+//
+//    LazyColumn (content = {items(getList()){item -> CardView(title = item.title, subtitle = item.subtitle )} })
+//
+//}
+//
+//@Composable
+//private fun CardView(title:String, subtitle:String) {
+//    Row(
+//        horizontalArrangement = Arrangement.SpaceAround,
+//        verticalAlignment = Alignment.CenterVertically
+//    )
+//    {
+//
+//        Image(
+//            painter = painterResource(id = R.drawable.heart),
+//            contentDescription = "Heart Icon",
+//            contentScale = ContentScale.Crop
+//        )
+//
+//        Column (
+//            verticalArrangement = Arrangement.SpaceEvenly,
+//            horizontalAlignment = Alignment.CenterHorizontally
+//        )
+//        {
+//            Text(text = title, fontSize = 24.sp)
+//            Text(text = subtitle, fontSize = 24.sp)
+//        }
+//
+//
+//    }
+//
+//}
 
 //@Preview(showBackground = true, widthDp = 300, heightDp = 500)
 //@Composable
